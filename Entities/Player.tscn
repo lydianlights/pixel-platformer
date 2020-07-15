@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 20 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "Crouch"
 step = 0.05
 tracks/0/type = "value"
@@ -22,40 +22,8 @@ tracks/0/keys = {
 "values": [ 4, 5 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Jump"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 5 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "LookUp"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 6, 7 ]
-}
-
 [sub_resource type="Animation" id=3]
-resource_name = "Stand"
+resource_name = "Idle"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -71,7 +39,38 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Walk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "LookUp"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Move"
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -97,15 +96,15 @@ __meta__ = {
 position = Vector2( 0, -24 )
 texture = ExtResource( 1 )
 hframes = 8
-frame = 2
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -20 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Crouch = SubResource( 5 )
-anims/Jump = SubResource( 2 )
-anims/LookUp = SubResource( 6 )
-anims/Stand = SubResource( 3 )
-anims/Walk = SubResource( 4 )
+anims/Crouch = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Jump = SubResource( 4 )
+anims/LookUp = SubResource( 5 )
+anims/Move = SubResource( 6 )
